@@ -1,0 +1,9 @@
+Package: com.52developer.kuaishou
+Name: Mkuaishou
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: 快手视频地址复制插件
+Maintainer: Coleflowers
+Author: Coleflowers
+Section: Tweaks
