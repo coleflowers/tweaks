@@ -1,0 +1,9 @@
+Package: com.52developer.miaopai
+Name: MPPatch
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Coleflowers
+Author: Coleflowers
+Section: Tweaks
