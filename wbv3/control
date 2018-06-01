@@ -1,0 +1,9 @@
+Package: com.52developer.wbv2
+Name: MLLWBv2
+Depends: mobilesubstrate
+Version: 0.0.2
+Architecture: iphoneos-arm
+Description: 微博iOS客户端单击视频复制视频地址到剪贴板
+Maintainer: coleflowers
+Author: coleflowers
+Section: Tweaks
