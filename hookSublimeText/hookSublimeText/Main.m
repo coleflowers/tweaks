@@ -33,7 +33,7 @@
 
 // - PXWindow
 - (void)m_st_update {
-    // NSLog(@"SublimeText m_st_update");
+    NSLog(@"SublimeText m_st_update");
     [self m_st_update];
     [self m_hidden_registerMarkView];
 }
@@ -42,7 +42,9 @@
     NSDictionary *mark = [[NSUserDefaults standardUserDefaults] objectForKey:@"removedMark"];
     if (mark) {
         if ([[mark allKeys] containsObject:[self m_set_key]]) {
-            return;
+            __unused NSNumber *num = [mark valueForKey:[self m_set_key]];
+            //TODO
+            //return;
         }
     }
     
@@ -54,6 +56,8 @@
     for (id item in titleBars) {
         [self m_hidden_registerMarkView:item];
     }
+    
+    [self m_set_removeMark];
 }
 
 // Sublime Text 里有一个同名的c函数🐶
@@ -115,12 +119,13 @@
             NSTextField *txtView = (NSTextField *)item;
             
             if ([txtView.stringValue isEqualToString:@"UNREGISTERED"]) {
-                [txtView removeFromSuperview];
+                // [txtView removeFromSuperview];
+                // [txtView setHidden:YES];
+                
+                [txtView setFrame:NSMakeRect(0, 0, 0, 0)];
             }
         }
     }
-    
-    [self m_set_removeMark];
 }
 
 - (NSString *)m_set_key {
@@ -129,9 +134,8 @@
 }
 
 - (void)m_set_removeMark {
-
     NSMutableDictionary *mark = @{}.mutableCopy;
-    [mark setValue:@"1" forKey:[self m_set_key]];
+    [mark setValue:@1 forKey:[self m_set_key]];
     
     [[NSUserDefaults standardUserDefaults] setObject:mark forKey:@"removedMark"];
     [[NSUserDefaults standardUserDefaults] synchronize];
